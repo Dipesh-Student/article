@@ -14,7 +14,7 @@ switch ( $action ) {
     homepage();
 }
 
-
+//get all articles
 function archive() {
   $results = array();
   $data = Article::getList();
@@ -24,6 +24,7 @@ function archive() {
   require( TEMPLATE_PATH . "/archive.php" );
 }
 
+//detailed view of article 
 function viewArticle() {
   if ( !isset($_GET["articleId"]) || !$_GET["articleId"] ) {
     homepage();
@@ -36,6 +37,7 @@ function viewArticle() {
   require( TEMPLATE_PATH . "/viewArticle.php" );
 }
 
+//returns with specific no of articles to be shown
 function homepage() {
   $results = array();
   $data = Article::getList( HOMEPAGE_NUM_ARTICLES );
